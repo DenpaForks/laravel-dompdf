@@ -74,22 +74,10 @@ class PDF{
      * @param string $orientation
      * @return $this
      */
-    public function setPaper($paper, $orientation=null){
+    public function setPaper($paper, $orientation = 'portrait'){
         $this->paper = $paper;
-        if($orientation){
-            $this->orientation = $orientation;
-        }
-        return $this;
-    }
-
-    /**
-     * Set the orientation (default portrait)
-     *
-     * @param string $orientation
-     * @return static
-     */
-    public function setOrientation($orientation){
         $this->orientation = $orientation;
+        $this->dompdf->setPaper($paper, $orientation);
         return $this;
     }
 
